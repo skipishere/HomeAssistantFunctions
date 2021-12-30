@@ -53,7 +53,7 @@ namespace BinCollection
                 var collections = await response.Content.ReadFromJsonAsync<BinJobs>();
                 var binUpdater = new BinUpdater(log);
 
-                Parallel.ForEach(collections.Jobs, async (job) => await binUpdater.Update(job));
+                await binUpdater.Update(collections);
             }
             else
             {
