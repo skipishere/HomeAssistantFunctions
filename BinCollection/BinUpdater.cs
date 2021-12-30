@@ -21,6 +21,7 @@ namespace BinCollection
                 state = nextBin.Next.ToString("yyyy-MM-dd"),
                 attributes = new
                 {
+                    device_class = "date",
                     friendly_name = "Bin collection",
                     type = $"{nextBin.Type} bin",
                     icon = nextBin.Type == BinJobs.Job.BinType.Recycling ? "mdi:recycle" : "mdi:trash-can-outline",
