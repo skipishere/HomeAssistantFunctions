@@ -45,7 +45,7 @@ namespace BinCollection
         private static async Task GetData(ILogger log)
         {
             var date = DateTime.UtcNow;
-            var address = string.Format(Environment.GetEnvironmentVariable("CouncilBinUrl"), date.ToString("yyyy-MM-dd"), date.AddDays(8).ToString("yyyy-MM-dd"));
+            var address = string.Format(Environment.GetEnvironmentVariable("CouncilBinUrl"), date.ToString("yyyy-MM-dd"), date.AddDays(15).ToString("yyyy-MM-dd"));
                         
             var response = await Client.GetAsync(address);
             if (response.IsSuccessStatusCode)
