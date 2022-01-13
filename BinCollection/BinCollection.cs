@@ -13,7 +13,7 @@ namespace BinCollection
 #if DEBUG
         private const string Schedule = "0 * * * * *";
 #else
-        private const string Schedule = "0 0 6 * * *";
+        private const string Schedule = "0 0 6,18 * * *";
 #endif
         private static HttpClient Client;
 
