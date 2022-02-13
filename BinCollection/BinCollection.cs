@@ -34,12 +34,12 @@ namespace BinCollection
         }
 
         [FunctionName("BinCollection")]
-        public static void Run([TimerTrigger(Schedule)]TimerInfo myTimer, ILogger log)
+        public static async Task Run([TimerTrigger(Schedule)]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             SetupCouncilClient();
-            
-            GetData(log).Wait();
+
+            await GetData(log);
         }
 
         private static async Task GetData(ILogger log)
