@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
+using Microsoft.Extensions.Logging;
 
-namespace HomeAssistantHelpers
+namespace Helpers
 {
     public abstract class HomeAssistantUpdater
     {

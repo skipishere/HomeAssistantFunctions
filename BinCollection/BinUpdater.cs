@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 
-using HomeAssistantHelpers;
+using Helpers;
 using Microsoft.Extensions.Logging;
 
 namespace BinCollection
