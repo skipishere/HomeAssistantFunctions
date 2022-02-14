@@ -5,7 +5,7 @@ namespace Helpers
 {
     public abstract class HomeAssistantUpdater
     {
-        private static HttpClient HomeClient;
+        private static HttpClient HomeClient = default!;
 
         private readonly ILogger _log;
 
@@ -17,7 +17,7 @@ namespace Helpers
             {
                 HomeClient = new HttpClient()
                 {
-                    BaseAddress = new Uri(Environment.GetEnvironmentVariable("HomeAssistantUrl")),
+                    BaseAddress = new Uri(Environment.GetEnvironmentVariable("HomeAssistantUrl")!),
                 };
 
                 HomeClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {Environment.GetEnvironmentVariable("HAToken")}");
@@ -27,10 +27,13 @@ namespace Helpers
         protected async Task PostUpdate(string url, object data)
         {
             var response = await HomeClient.PostAsJsonAsync(url, data);
-
-            if (!response.IsSuccessStatusCode)
+            try
             {
-                _log.LogError("Unable to update", url, response.StatusCode);
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
+            {
+                _log.LogError(ex, "Unable to update");
             }
         }
     }
