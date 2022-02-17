@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace BinCollection
@@ -12,7 +13,9 @@ namespace BinCollection
         internal record struct ResultData
         {
             [JsonPropertyName("day_length")]
-            public string DayLength { get; set; }
+            public int DayLength { get; set; }
+
+            public TimeSpan ReadableLength => TimeSpan.FromSeconds(this.DayLength);
         }
     }
 }
