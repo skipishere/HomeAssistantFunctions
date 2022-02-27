@@ -18,10 +18,10 @@ namespace BinCollection
                 state = sunData.Result.DayLength,
                 attributes = new
                 {
-                    //device_class = "date",
                     friendly_name = "Amount of daylight",
                     icon = "mdi:weather-sunset-up",
                     readable_day_length = sunData.Result.ReadableLength,
+                    unit_of_measurement = "second",
                 }
             };
 
