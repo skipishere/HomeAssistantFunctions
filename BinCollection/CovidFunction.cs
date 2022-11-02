@@ -14,7 +14,7 @@ namespace BinCollection
 #if DEBUG
         private const string Schedule = "0 * * * * *";
 #else
-        private const string Schedule = "0 0 16-20 * * 3";
+        private const string Schedule = "0 0 16-20 * * 4";
 #endif
         private static HttpClient GovClient;
 
