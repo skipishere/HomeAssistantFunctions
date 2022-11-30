@@ -53,7 +53,8 @@ namespace BinCollection
                 var collections = await response.Content.ReadFromJsonAsync<BinJobs>();
                 var binUpdater = new BinUpdater(log);
 
-                await binUpdater.Update(collections);
+                // For now don't send bin updates to Home Assistant
+                //await binUpdater.Update(collections);
             }
             else
             {
