@@ -12,7 +12,7 @@ namespace BinCollection
 #if DEBUG
         private const string Schedule = "0 * * * * *";
 #else
-        private const string Schedule = "0 0 5 * * *";
+        private const string Schedule = "0 0 5 1-25 12 *";
 #endif
 
         [FunctionName("SlackPost")]
