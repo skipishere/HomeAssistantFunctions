@@ -48,7 +48,7 @@ namespace BinCollection
                 var address = $"{date.Year}/day/{date.Day}";
 
                 var response = await client.GetAsync(address);
-                var regex = new Regex("<article class=\"day-desc\"><h2>--- Day \\d+: (?<title>[\\w -]+) ---<\\/h2>");
+                var regex = new Regex("<article class=\"day-desc\"><h2>--- Day \\d+: (?<title>.+) ---<\\/h2>");
                 var match = regex.Match(await response.Content.ReadAsStringAsync());
                 
                 return $" - {match.Groups["title"].Value}";
